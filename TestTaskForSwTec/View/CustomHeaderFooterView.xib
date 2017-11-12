@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomHeaderFooterView">
+            <connections>
+                <outlet property="cleanSettingsButton" destination="Dh1-nm-K6z" id="Gpq-v5-oGm"/>
+                <outlet property="headerFooterTextLabel" destination="KQf-LB-xkc" id="hap-4r-CRo"/>
+                <outlet property="view" destination="fKa-xl-pgw" id="eyz-2o-Xue"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fKa-xl-pgw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header/Footer Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-LB-xkc">
+                    <rect key="frame" x="10" y="4" width="164" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="164" id="pVW-HZ-X0p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh1-nm-K6z">
+                    <rect key="frame" x="335.5" y="2" width="31.5" height="23.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31.5" id="I6b-dZ-mW2"/>
+                        <constraint firstAttribute="height" constant="23.5" id="vay-L1-3zO"/>
+                    </constraints>
+                    <state key="normal" title="Clean settings" image="TrashCan">
+                        <color key="titleColor" red="0.2278204425" green="0.68461683230000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onServiceButtonClicked:" destination="-1" eventType="touchUpInside" id="ufz-mg-Z68"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Dh1-nm-K6z" firstAttribute="top" secondItem="tq9-ed-HHw" secondAttribute="top" constant="2" id="JVH-RD-Wzo"/>
+                <constraint firstItem="Dh1-nm-K6z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="KQf-LB-xkc" secondAttribute="trailing" constant="171" id="MEg-RY-GTc"/>
+                <constraint firstItem="tq9-ed-HHw" firstAttribute="trailing" secondItem="Dh1-nm-K6z" secondAttribute="trailing" constant="8" id="MVd-RG-2Jm"/>
+                <constraint firstItem="KQf-LB-xkc" firstAttribute="leading" secondItem="tq9-ed-HHw" secondAttribute="leading" constant="10" id="PJp-o2-kjA"/>
+                <constraint firstItem="KQf-LB-xkc" firstAttribute="top" secondItem="tq9-ed-HHw" secondAttribute="top" constant="4" id="abT-Tn-jQu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="tq9-ed-HHw"/>
+            <point key="canvasLocation" x="-48" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="TrashCan" width="256" height="256"/>
+    </resources>
+</document>
