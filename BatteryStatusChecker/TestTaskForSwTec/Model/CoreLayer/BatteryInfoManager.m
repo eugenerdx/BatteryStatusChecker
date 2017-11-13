@@ -124,7 +124,6 @@
     if (self.timeLeftCounter-1 == 0)
     {
         [self currentBatteryInfo];
-        self.timeLeftCounter = kUpdateTime;
     }
     else
     {
@@ -149,6 +148,7 @@
                                          [[DatabaseWrapper sharedInstance] updateDataBaseWithOptions:EditOptionsUpdate];
                                      });
                   });
+    self.timeLeftCounter = kUpdateTime;
 }
 
 - (NSArray *)getArrayForDeletion
