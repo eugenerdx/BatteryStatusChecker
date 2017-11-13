@@ -23,14 +23,22 @@ Objective-C code examples tested on iOS 11.0.3 & XCode 9
   	━ Can drain the battery for several hours backgrounding
   	━ The app can be rejected in the app store with this code usage
 
+• Custom UITableViewCell from .xib file based on stackviews example
+• KVO as observer pattern between BatteryInfoManager and ViewController
+• Grand Central Dispatch with SQLite examples
+• Custom headers examples
+
+Known issues: 
+  	━ Safe area (and iPhone X) support with custom view from .xib files
+ 
 Screenshots:
 
-![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot1.png)
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot1.png "The main app viewcontroller")
 
-![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot2.png)
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot2.png "The logging of battery statistics is started")
 
-![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot3.png)
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot3.png "Single deletion")
 
-![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot4.png)
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot4.png "Filtered delition")
 
 
