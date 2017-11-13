@@ -204,15 +204,9 @@
     if ([change objectForKey:@"new"] && [[object valueForKeyPath:@"_totalBatteryInfo"] isKindOfClass:[NSArray class]])
     {
         NSArray *historyArray = [object valueForKeyPath:@"_totalBatteryInfo"];
-        [self setTableViewInfoArray:[[[historyArray reverseObjectEnumerator] allObjects] mutableCopy]];
+        self.tableViewInfoArray = [[[historyArray reverseObjectEnumerator] allObjects] mutableCopy];
+        [self setLastBatteryInfo:[historyArray lastObject]];
         
-        
-        if (historyArray.count == 0)
-        {
-            [[BatteryInfoManager sharedInstance] currentBatteryInfo];
-            [self setLastBatteryInfo:[historyArray lastObject]];
-
-        }
         dispatch_async(dispatch_get_main_queue(), ^
                        {
                            [self.statisticViewLatitudeLabel setText:[NSString stringWithFormat:@"%f", self.lastBatteryInfo.location.coordinate.latitude]];

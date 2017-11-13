@@ -252,25 +252,18 @@
 
 - (void)batteryStatisticsInDatabaseHasBeenUpdated:(DatabaseWrapper*)databaseWrapper
 {
-    if (databaseWrapper.updatedOptions == EditOptionsDeleteSingle ||
-        databaseWrapper.updatedOptions == EditOptionsDeleteLastInfo ||
+    if (databaseWrapper.updatedOptions == EditOptionsDeleteLastInfo ||
         databaseWrapper.updatedOptions == EditOptionsDeleteFirstInfo ||
         databaseWrapper.updatedOptions == EditOptionsDeleteSomeMinutesAgo)
     {
-        if (self.totalBatteryInfo.count == 0)
-        {
-            self.timeLeftCounter = 0;
-            [self timerHandle];
-        }
-        
         [self willChangeValueForKey:@"_totalBatteryInfo"];
         self.totalBatteryInfo = [databaseWrapper.historyArray mutableCopy];
         [self didChangeValueForKey:@"_totalBatteryInfo"];
-        
-        if (self.arrayForDeletion.count > 0)
-        {
-            [self cleanArrayForDeletion];
-        }
+    }
+    
+    if (self.arrayForDeletion.count > 0)
+    {
+        [self cleanArrayForDeletion];
     }
 }
 
