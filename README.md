@@ -22,3 +22,15 @@ Objective-C code examples tested on iOS 11.0.3 & XCode 9
   	━ Blue status bar on top are visible with "LOCATION USAGE" warning text message in the background mode
   	━ Can drain the battery for several hours backgrounding
   	━ The app can be rejected in the app store with this code usage
+
+Screenshots:
+
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot1.png)
+
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot2.png)
+
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot3.png)
+
+![alt text](https://raw.githubusercontent.com/eugenerdx/BatteryStatusChecker/master/Screenshots/Screenshot4.png)
+
+
