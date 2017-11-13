@@ -77,7 +77,6 @@
     [[LocationManager sharedInstance] requestPermissions];
     [[BatteryInfoManager sharedInstance] addTotalBatteryInfoObserver:self];
     [[BatteryInfoManager sharedInstance] loadHistory];
-    [[BatteryInfoManager sharedInstance] currentBatteryInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated

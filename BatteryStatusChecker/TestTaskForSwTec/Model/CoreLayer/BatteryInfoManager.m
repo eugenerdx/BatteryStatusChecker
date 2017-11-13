@@ -135,9 +135,12 @@
 - (void)currentBatteryInfo
 {
     UIDeviceBatteryState state = [self.currentDevice batteryState];
+    
     CGFloat level = [self.currentDevice batteryLevel] * 100;
     CGFloat timeStemp = [[NSDate date] timeIntervalSince1970];
+    
     BatteryInfo *batteryInfo = [[BatteryInfo alloc] initWithBatteryLevel:level state:state location:[[LocationManager sharedInstance] getLastLocation] timeStamp:timeStemp];
+    
     dispatch_sync([BatteryInfoManager sharedQueue], ^
                   {
                       [self willChangeValueForKey:@"_totalBatteryInfo"];
@@ -148,6 +151,7 @@
                                          [[DatabaseWrapper sharedInstance] updateDataBaseWithOptions:EditOptionsUpdate];
                                      });
                   });
+    
     self.timeLeftCounter = kUpdateTime;
 }
 
@@ -167,6 +171,7 @@
     dispatch_sync([BatteryInfoManager sharedQueue], ^
                   {
                       self.arrayForDeletion = nil;
+                      
                       if (!self.arrayForDeletion)
                       {
                           self.arrayForDeletion = [[NSMutableArray alloc] init];
@@ -243,10 +248,10 @@
 {
     dispatch_sync([BatteryInfoManager sharedQueue], ^
                   {
-                      [self currentBatteryInfo];
                       [self willChangeValueForKey:@"_totalBatteryInfo"];
                       self.totalBatteryInfo = [historyArray.historyArray mutableCopy];
                       [self didChangeValueForKey:@"_totalBatteryInfo"];
+                      [self currentBatteryInfo];
                   });
 }
 
@@ -256,9 +261,12 @@
         databaseWrapper.updatedOptions == EditOptionsDeleteFirstInfo ||
         databaseWrapper.updatedOptions == EditOptionsDeleteSomeMinutesAgo)
     {
-        [self willChangeValueForKey:@"_totalBatteryInfo"];
-        self.totalBatteryInfo = [databaseWrapper.historyArray mutableCopy];
-        [self didChangeValueForKey:@"_totalBatteryInfo"];
+        dispatch_sync([BatteryInfoManager sharedQueue], ^
+        {
+            [self willChangeValueForKey:@"_totalBatteryInfo"];
+            self.totalBatteryInfo = [databaseWrapper.historyArray mutableCopy];
+            [self didChangeValueForKey:@"_totalBatteryInfo"];
+        });
     }
     
     if (self.arrayForDeletion.count > 0)

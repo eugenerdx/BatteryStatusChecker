@@ -123,6 +123,7 @@
         {
             error = [[NSError alloc] initErrorWithDescription:[NSString stringWithFormat:@"%s", sqlite3_errmsg(sqlite3Database)] withErrorCode:(NSInteger)prepareStatementResult];
         }
+        
         sqlite3_finalize(compiledStatement);
     }
     else
@@ -130,6 +131,7 @@
         error = [[NSError alloc] initErrorWithDescription:[NSString stringWithFormat:@"%s", sqlite3_errmsg(sqlite3Database)] withErrorCode:(NSInteger)openDatabaseResult];
         block(error);
     }
+    
     sqlite3_close(sqlite3Database);
     
     if (block)
@@ -140,28 +142,21 @@
 
 - (void)loadDataFromDB:(NSString *)query withCompletion:(void (^)(NSError *error, NSArray* result))block
 {
-    dispatch_barrier_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, DISPATCH_TIME_NOW), ^
-                          {
-                              [self runQuery:[query UTF8String] isQueryExecutable:NO withCompletion:^(NSError *error)
-                               {
-                                   block(error, [self.resultsArray copy]);
-                               }];
-                          });
+    [self runQuery:[query UTF8String] isQueryExecutable:NO withCompletion:^(NSError *error)
+     {
+         block(error, [self.resultsArray copy]);
+     }];
 }
 
 - (void)executeQuery:(NSString *)query withCompletion:(void (^)(NSError *error))block
 {
-    dispatch_barrier_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, DISPATCH_TIME_NOW), ^
-                          {
-                              [self runQuery:[query UTF8String] isQueryExecutable:YES withCompletion:^(NSError *error)
-                               {
-                                   if (block)
-                                   {
-                                       block(error);
-                                   }
-                                   
-                               }];
-                          });
+    [self runQuery:[query UTF8String] isQueryExecutable:YES withCompletion:^(NSError *error)
+     {
+         if (block)
+         {
+             block(error);
+         }
+     }];
 }
 
 - (NSArray *)loadDataFromDB:(NSString *)query
