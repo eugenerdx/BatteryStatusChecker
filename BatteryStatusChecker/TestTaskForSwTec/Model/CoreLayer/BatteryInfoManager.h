@@ -14,12 +14,6 @@
 + (instancetype)sharedInstance;
 
 /**
- Using for sharing battery information between array and database
- @return serial dispatch queue
- */
-+ (dispatch_queue_t)sharedQueue;
-
-/**
  KVO
  Add observer to total battery info array
  @param object NSArray
