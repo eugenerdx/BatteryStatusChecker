@@ -246,7 +246,7 @@
         });
     }
 }
-    
+
 - (void)showAuthorizationStatusDeniedAlert
 {
     [self setIsLocationDenied:YES];

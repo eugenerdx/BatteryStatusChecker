@@ -75,20 +75,20 @@
     [self.headerFooterTextLabel setText:self.title];
     
     dispatch_async(dispatch_get_main_queue(), ^
-    {
-        if (self.serviceButtonEnabled == YES)
-        {
-            [self.cleanSettingsButton setHidden:NO];
-            [self.cleanSettingsButton setUserInteractionEnabled:YES];
-            [self.cleanSettingsButton.titleLabel setTextColor:cLightBlueColor];
-        }
-        else
-        {
-            [self.cleanSettingsButton setHidden:YES];
-            [self.cleanSettingsButton setUserInteractionEnabled:NO];
-            [self.cleanSettingsButton.titleLabel setTextColor:cClearColor];
-        }
-    });
+                   {
+                       if (self.serviceButtonEnabled == YES)
+                       {
+                           [self.cleanSettingsButton setHidden:NO];
+                           [self.cleanSettingsButton setUserInteractionEnabled:YES];
+                           [self.cleanSettingsButton.titleLabel setTextColor:cLightBlueColor];
+                       }
+                       else
+                       {
+                           [self.cleanSettingsButton setHidden:YES];
+                           [self.cleanSettingsButton setUserInteractionEnabled:NO];
+                           [self.cleanSettingsButton.titleLabel setTextColor:cClearColor];
+                       }
+                   });
     
     [self addSubview:self.view];
     [self.view setFrame:self.bounds];

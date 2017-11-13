@@ -71,8 +71,8 @@
         
         if (success)
         {
-                [self setHistoryArray:[self loadAllBatteryInfo]];
-                [self.delegate batteryStatisticsInDatabaseHasBeenUpdated:self];
+            [self setHistoryArray:[self loadAllBatteryInfo]];
+            [self.delegate batteryStatisticsInDatabaseHasBeenUpdated:self];
         }
     }
 }
@@ -95,7 +95,7 @@
     }
     dispatch_group_wait(group,  DISPATCH_TIME_FOREVER);
     
-        [self.delegate batteryStatisticsInDatabaseHasBeenUpdated:self];
+    [self.delegate batteryStatisticsInDatabaseHasBeenUpdated:self];
 }
 
 - (void)loadHistoryFromDatabase
@@ -165,7 +165,7 @@
                  CLLocation *unwrappedLocation = [[CLLocation alloc] initWithLatitude:parseLatitude longitude:parseLongtitude];
                  
                  BatteryInfo *batteryInfo = [[BatteryInfo alloc] initWithBatteryLevel:level state:state location:unwrappedLocation timeStamp:timeStamp];
-
+                 
                  [loadedDatabaseArray addObject:batteryInfo];
              }
          }

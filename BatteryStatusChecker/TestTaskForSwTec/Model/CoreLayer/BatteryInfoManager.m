@@ -32,12 +32,12 @@
     {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^
-        {
-            sharedInstance = [[super allocWithZone:NULL] init];
-            BatteryInfoManager *instance = sharedInstance;
-            instance.currentDevice = [UIDevice currentDevice];
-            instance.currentDevice.batteryMonitoringEnabled = YES;
-        });
+                      {
+                          sharedInstance = [[super allocWithZone:NULL] init];
+                          BatteryInfoManager *instance = sharedInstance;
+                          instance.currentDevice = [UIDevice currentDevice];
+                          instance.currentDevice.batteryMonitoringEnabled = YES;
+                      });
     }
     return sharedInstance;
 }
@@ -62,9 +62,9 @@
     static dispatch_queue_t sharedQueue;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
-    {
-        sharedQueue = dispatch_queue_create("Battery Statistics Read/Write Queue", DISPATCH_QUEUE_CONCURRENT);
-    });
+                  {
+                      sharedQueue = dispatch_queue_create("Battery Statistics Read/Write Queue", DISPATCH_QUEUE_CONCURRENT);
+                  });
     return sharedQueue;
 }
 

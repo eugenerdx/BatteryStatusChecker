@@ -64,8 +64,8 @@
 
 - (void)startLocationUpdates
 {
-        [self.locationManager startUpdatingLocation];
-        [self setLastLocation:[self getLastLocation]];
+    [self.locationManager startUpdatingLocation];
+    [self setLastLocation:[self getLastLocation]];
 }
 
 - (CLLocation *)getLastLocation
