@@ -29,11 +29,11 @@ Objective-C code examples tested on iOS 11.0.3 & XCode 9
 
 • Grand Central Dispatch with SQLite examples
 
-• Custom headers examples
+• Custom headers from .xib files in storyboard and tableview reuse example
 
-Known issues: 
+KNOWN ISSUES: 
 
-  	━ Safe area (and iPhone X) support with custom view from .xib files
+  	━ Safe area (and iPhone X) support warnings in console with custom views from .xib files
  
 Screenshots:
 
