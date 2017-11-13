@@ -264,6 +264,11 @@
         [self willChangeValueForKey:@"_totalBatteryInfo"];
         self.totalBatteryInfo = [databaseWrapper.historyArray mutableCopy];
         [self didChangeValueForKey:@"_totalBatteryInfo"];
+        
+        if (self.arrayForDeletion.count > 0)
+        {
+            [self cleanArrayForDeletion];
+        }
     }
 }
 

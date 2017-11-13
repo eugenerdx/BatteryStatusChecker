@@ -268,7 +268,7 @@
 - (IBAction)onServiceButtonClicked:(id)sender
 {
     DeleteAlertViewController *alert = [DeleteAlertViewController alertControllerWithTitle:@"Choose your delete options"
-                                                                                   message:@"Delete battery status for:"
+                                                                                   message:@"Delete battery information for:"
                                                                             preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:^{}];
 }
