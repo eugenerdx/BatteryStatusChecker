@@ -6,7 +6,7 @@ Includes:
 
 Objective-C code examples tested on iOS 11.0.3 & XCode 9
 
-• UITableView updates every 30 seconds by NSTimer in Main Runloop
+• UITableView updates every 30 seconds by NSTimer in Current Runloop
 
 • Relationships between BatteryInfoManager and DatabaseWrapper based on delegate pattern
 
