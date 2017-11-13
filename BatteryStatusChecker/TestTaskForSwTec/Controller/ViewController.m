@@ -77,9 +77,12 @@
     [[LocationManager sharedInstance] requestPermissions];
     [[BatteryInfoManager sharedInstance] addTotalBatteryInfoObserver:self];
     [[BatteryInfoManager sharedInstance] loadHistory];
-    [[BatteryInfoManager sharedInstance] timerHandle];
-    
-    self.lastBatteryInfo = [self.tableViewInfoArray lastObject];
+    [[BatteryInfoManager sharedInstance] currentBatteryInfo];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)dealloc
@@ -205,6 +208,10 @@
         
         [self setLastBatteryInfo:[historyArray lastObject]];
         
+        if (historyArray.count == 0)
+        {
+            [[BatteryInfoManager sharedInstance] currentBatteryInfo];
+        }
         dispatch_async(dispatch_get_main_queue(), ^
                        {
                            [self.statisticViewLatitudeLabel setText:[NSString stringWithFormat:@"%f", self.lastBatteryInfo.location.coordinate.latitude]];
@@ -288,7 +295,7 @@
 
 - (void)onLeftBarButtonItem:(id)sender
 {
-    [[BatteryInfoManager sharedInstance] timerHandle];
+    [[BatteryInfoManager sharedInstance] currentBatteryInfo];
     
     if ([self isStarted] == NO)
     {

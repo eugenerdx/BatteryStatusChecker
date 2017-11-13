@@ -23,10 +23,7 @@
  */
 + (dispatch_queue_t)sharedQueue;
 
-/**
- Get last battery and state to showing it for the first time
- */
-- (void)timerHandle;
+- (void)currentBatteryInfo;
 
 /**
  Loading history array from database
