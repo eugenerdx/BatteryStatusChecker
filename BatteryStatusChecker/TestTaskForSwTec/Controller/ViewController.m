@@ -206,11 +206,12 @@
         NSArray *historyArray = [object valueForKeyPath:@"_totalBatteryInfo"];
         [self setTableViewInfoArray:[[[historyArray reverseObjectEnumerator] allObjects] mutableCopy]];
         
-        [self setLastBatteryInfo:[historyArray lastObject]];
         
         if (historyArray.count == 0)
         {
             [[BatteryInfoManager sharedInstance] currentBatteryInfo];
+            [self setLastBatteryInfo:[historyArray lastObject]];
+
         }
         dispatch_async(dispatch_get_main_queue(), ^
                        {
