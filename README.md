@@ -24,11 +24,15 @@ Objective-C code examples tested on iOS 11.0.3 & XCode 9
   	━ The app can be rejected in the app store with this code usage
 
 • Custom UITableViewCell from .xib file based on stackviews example
+
 • KVO as observer pattern between BatteryInfoManager and ViewController
+
 • Grand Central Dispatch with SQLite examples
+
 • Custom headers examples
 
 Known issues: 
+
   	━ Safe area (and iPhone X) support with custom view from .xib files
  
 Screenshots:
