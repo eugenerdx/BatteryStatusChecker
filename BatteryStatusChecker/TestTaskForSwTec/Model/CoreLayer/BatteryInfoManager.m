@@ -136,9 +136,9 @@
 - (void)currentBatteryInfo
 {
     UIDeviceBatteryState state = [self.currentDevice batteryState];
-    CGFloat batteryLeft = [self.currentDevice batteryLevel] * 100;
+    CGFloat level = [self.currentDevice batteryLevel] * 100;
     CGFloat timeStemp = [[NSDate date] timeIntervalSince1970];
-    BatteryInfo *batteryInfo = [[BatteryInfo alloc] initWithBatteryLevel:batteryLeft state:state location:[[LocationManager sharedInstance] getLastLocation] timeStamp:timeStemp];
+    BatteryInfo *batteryInfo = [[BatteryInfo alloc] initWithBatteryLevel:level state:state location:[[LocationManager sharedInstance] getLastLocation] timeStamp:timeStemp];
     dispatch_sync([BatteryInfoManager sharedQueue], ^
                   {
                       [self willChangeValueForKey:@"_totalBatteryInfo"];
@@ -211,6 +211,7 @@
     }
     else if (options == EditOptionsDeleteAll)
     {
+        [self.totalBatteryInfo removeAllObjects];
         [[DatabaseWrapper sharedInstance] updateDataBaseWithOptions:EditOptionsDeleteAll];
     }
 }
@@ -242,6 +243,7 @@
 {
     dispatch_sync([BatteryInfoManager sharedQueue], ^
                   {
+                      [self currentBatteryInfo];
                       [self willChangeValueForKey:@"_totalBatteryInfo"];
                       self.totalBatteryInfo = [historyArray.historyArray mutableCopy];
                       [self didChangeValueForKey:@"_totalBatteryInfo"];

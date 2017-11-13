@@ -78,6 +78,8 @@
     [[BatteryInfoManager sharedInstance] addTotalBatteryInfoObserver:self];
     [[BatteryInfoManager sharedInstance] loadHistory];
     [[BatteryInfoManager sharedInstance] timerHandle];
+    
+    self.lastBatteryInfo = [self.tableViewInfoArray lastObject];
 }
 
 - (void)dealloc
@@ -201,7 +203,7 @@
         NSArray *historyArray = [object valueForKeyPath:@"_totalBatteryInfo"];
         [self setTableViewInfoArray:[[[historyArray reverseObjectEnumerator] allObjects] mutableCopy]];
         
-        [self setLastBatteryInfo:[self.tableViewInfoArray firstObject]];
+        [self setLastBatteryInfo:[historyArray lastObject]];
         
         dispatch_async(dispatch_get_main_queue(), ^
                        {
