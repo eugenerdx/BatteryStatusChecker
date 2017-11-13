@@ -28,7 +28,7 @@ typedef enum
 #define kNeedsReloadData                       @"NeedsReloadData"
 #define kTotalBatteryInformation               @"TotalBatteryInformation"
 #define kCoreLocationAuthorizationStatusDenied @"CoreLocationAuthorizationStatusDenied"
-#define kTimeLeft                            @"TimeRemain"
+#define kTimeLeft                              @"TimeLeft"
 
 #pragma mark - integerValues
 #define kOneMinute 1

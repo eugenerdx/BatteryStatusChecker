@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 
 @interface DBHelper : NSObject
+
 /**
  Database pre-loading
  @param dbFilename in main project bundle, will be copied to documents directory.

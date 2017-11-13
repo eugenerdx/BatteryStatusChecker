@@ -13,11 +13,16 @@
 + (instancetype)sharedInstance;
 
 
+/**
+ Get last location
+ @return CLLocation object
+ */
 - (CLLocation *)getLastLocation;
 
-
+/**
+ Request permission alert
+ */
 - (void)requestPermissions;
-
 
 /**
  Start updating location and get long time working
