@@ -96,7 +96,7 @@
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
                                                               action:@selector(onRightBarButtonItem:)];
-    [self.rightBarButtonItem setTintColor:cLightBlueColor];
+    [self.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : cLightBlueColor} forState:UIControlStateNormal];
     [self.rightBarButtonItem setEnabled:NO];
     
     
@@ -107,7 +107,7 @@
                                                               style:UIBarButtonItemStylePlain
                                                              target:self
                                                              action:@selector(onLeftBarButtonItem:)];
-    [self.leftBarButtonItem setTintColor:cLightBlueColor];
+    [self.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : cLightBlueColor} forState:UIControlStateNormal];
     [self.navigationItem setLeftBarButtonItem:self.leftBarButtonItem];
     
     [self setIsStarted:NO];
@@ -295,7 +295,7 @@
     {
         [[LocationManager sharedInstance] startLocationUpdates];
         [[BatteryInfoManager sharedInstance] startBatteryInfoMonitoring];
-        
+        [self.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateDisabled];
         [self.rightBarButtonItem setEnabled:YES];
         [self setIsStarted:YES];
     }
